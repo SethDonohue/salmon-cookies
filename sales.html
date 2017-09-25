@@ -3,7 +3,7 @@
 <!--
 First, create a separate JS object literal (no constructor functions... yet) for each shop location that does the following:
 -Stores the min/max hourly customers, and the average cookies per customer, in object properties
-Uses a method of that object to generate a random number of customers per hour. Objects/Math/random
+-Uses a method of that object to generate a random number of customers per hour. Objects/Math/random
 -Calculate and store the simulated amounts of cookies purchased for each hour at each location using average cookies purchased and the random number of customers generated
 -Store the results for each location in a separate array... perhaps as a property of the object representing that location
 -Display the values of each array as unordered lists in the browser
@@ -20,12 +20,12 @@ Total: 657 cookies
 
 -Display the lists on sales.html. We will be adding features to this application and working with its layout throughout the week.
 -Here are the starting numbers that you'll need to build these objects:
-Location	Min / Cust	Max / Cust	Avg Cookie / Sale
-1st and Pike	23	65	6.3
-SeaTac Airport	3	24	1.2
-Seattle Center	11	38	3.7
-Capitol Hill	20	38	2.3
-Alki	2	16	4.6 -->
+Location	      Min Max Avg Cookie / Sale
+1st and Pike	   23	65	6.3
+SeaTac Airport	 3	24	1.2
+Seattle Center	 11	38	3.7
+Capitol Hill	   20	38	2.3
+Alki	           2	16	4.6 -->
 
 <html>
   <head>
@@ -34,6 +34,7 @@ Alki	2	16	4.6 -->
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
+    <ul id='pine'> 1st and Pine </ul>
     <script type="text/javascript" src="app.js">
     </script>
   </body>

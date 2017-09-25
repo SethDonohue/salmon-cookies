@@ -1,37 +1,56 @@
 'use strict';
-var days = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm',];
 
-// Favorite Seattle beaches
+
+var hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm',];
+
+
+function random(min, max){
+  return Math.floor(Math.random() * (max - min + 1) + min);
+  // console.log('Random#: ' + x);
+  // return x;
+}
+
 
 var pike = {
-  minCust:
-  maxCust:
-  averageCookieSale
+  minCust: 23,
+  maxCust: 65,
+  averageCookieSale: 6.3,
+  customerEachHour: [],
 
   //calculated data with methods
-	// cookiesHour
+  // customersHour
+  calcArray: function() {
+    for (var i = 0; i < hours.length; i++) {
+      //add a random number to customerHour Array
+      console.log('Customer Each Hour: ' + random(pike.minCust, pike.maxCust));
+      console.log(random(pike.minCust, pike.maxCust));
+    }
+  },
 
-	// customersHour
 
-	// total for day
 
-	// name of store
+  // console.log(customerEachHour);
+  // Array of Customers / Hour
+  //cookies per Hour
+  // cookiesHour: customerHour * averageCookieSale,
 
-	// output/render method
-  
+  // Render function to creat LISTS
   render: function(){
-    for (var i = 0; i < this.count.length; i++) {
+    // console.log(pike.minCust);
+    for (var i = 0; i < hours.length; i++) {
       // create a new HTML element
       var liEl = document.createElement('li');
       // give that element content
-      liEl.textContent = days[i] + ': ' + this.count[i];
+      liEl.textContent = hours[i] + ': ' + random(pike.minCust, pike.maxCust);
       // append that element to the right spot in the DOM
       // parentElement.appendChild(childElement);
-      var alkiUl = document.getElementById('alki');
-      alkiUl.appendChild(liEl);
+      var pineUl = document.getElementById('pine');
+      pineUl.appendChild(liEl);
+      // console.log(pike.minCust);
+      // console.log(pike.maxCust);
     }
   }
 };
-
-
-alki.render();
+//output / render method
+pike.calcArray();
+pike.render();
