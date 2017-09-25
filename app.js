@@ -45,8 +45,8 @@ var pike = {
       liEl.textContent = hours[i] + ': ' + Math.floor(random(pike.minCust, pike.maxCust) * this.averageCookieSale) + ' cookies';
       // append that element to the right spot in the DOM
       // parentElement.appendChild(childElement);
-      var pineUl = document.getElementById('pine');
-      pineUl.appendChild(liEl);
+      var pikeUl = document.getElementById('pike');
+      pikeUl.appendChild(liEl);
       // console.log(pike.minCust);
       // console.log(pike.maxCust);
     }
