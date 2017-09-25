@@ -19,7 +19,7 @@ var pike = {
 
   //calculated data with methods
   // customersHour
-  calcArray: function() {
+  customersHour: function() {
     for (var i = 0; i < hours.length; i++) {
       //add a random number to customerHour Array
       console.log('Customer Each Hour: ' + random(pike.minCust, pike.maxCust));
@@ -52,5 +52,5 @@ var pike = {
   }
 };
 //output / render method
-pike.calcArray();
+pike.customersHour();
 pike.render();
