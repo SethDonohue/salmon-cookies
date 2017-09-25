@@ -5,7 +5,7 @@ var hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '
 
 
 function random(min, max){
-  return Math.floor(Math.random() * (max - min + 1) + min);
+  return (Math.random() * (max - min + 1) + min);
   // console.log('Random#: ' + x);
   // return x;
 }
@@ -23,8 +23,9 @@ var pike = {
     for (var i = 0; i < hours.length; i++) {
       //add a random number to customerHour Array
       console.log('Customer Each Hour: ' + random(pike.minCust, pike.maxCust));
-      console.log(random(pike.minCust, pike.maxCust));
+      this.customerEachHour.push(Math.floor(random(pike.minCust, pike.maxCust)));
     }
+    console.log(this.customerEachHour);
   },
 
 
@@ -41,7 +42,7 @@ var pike = {
       // create a new HTML element
       var liEl = document.createElement('li');
       // give that element content
-      liEl.textContent = hours[i] + ': ' + random(pike.minCust, pike.maxCust);
+      liEl.textContent = hours[i] + ': ' + Math.floor(random(pike.minCust, pike.maxCust) * this.averageCookieSale) + ' cookies';
       // append that element to the right spot in the DOM
       // parentElement.appendChild(childElement);
       var pineUl = document.getElementById('pine');
