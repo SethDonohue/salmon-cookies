@@ -25,16 +25,6 @@ var pike = {
     // console.log(sum);
     return sum;
   },
-  //calculated data with methods
-  // customersHour
-  // customersHour: function() {
-  //   for (var i = 0; i < hours.length; i++) {
-  //     //add a random number to customerHour Array
-  //     console.log('Customer Each Hour: ' + random(pike.minCust, pike.maxCust));
-  // this.customerEachHour.push(Math.floor(random(pike.minCust, pike.maxCust)));
-  // }
-  // console.log(this.customerEachHour);
-  // },
 
   // Render function to create LISTS in HTML
   renderHourly: function(){
@@ -82,16 +72,6 @@ var seaTac = {
     // console.log(sum);
     return sum;
   },
-  //calculated data with methods
-  // customersHour
-  // customersHour: function() {
-  //   for (var i = 0; i < hours.length; i++) {
-  //     //add a random number to customerHour Array
-  //     console.log('Customer Each Hour: ' + random(seaTac.minCust, seaTac.maxCust));
-  // this.customerEachHour.push(Math.floor(random(seaTac.minCust, seaTac.maxCust)));
-  // }
-  // console.log(this.customerEachHour);
-  // },
 
   // Render function to create LISTS in HTML
   renderHourly: function(){
@@ -139,16 +119,6 @@ var seattleCenter = {
     // console.log(sum);
     return sum;
   },
-  //calculated data with methods
-  // customersHour
-  // customersHour: function() {
-  //   for (var i = 0; i < hours.length; i++) {
-  //     //add a random number to customerHour Array
-  //     console.log('Customer Each Hour: ' + random(seattleCenter.minCust, seattleCenter.maxCust));
-  // this.customerEachHour.push(Math.floor(random(seattleCenter.minCust, seattleCenter.maxCust)));
-  // }
-  // console.log(this.customerEachHour);
-  // },
 
   // Render function to create LISTS in HTML
   renderHourly: function(){
@@ -196,16 +166,6 @@ var capHill = {
     // console.log(sum);
     return sum;
   },
-  //calculated data with methods
-  // customersHour
-  // customersHour: function() {
-  //   for (var i = 0; i < hours.length; i++) {
-  //     //add a random number to customerHour Array
-  //     console.log('Customer Each Hour: ' + random(capHill.minCust, capHill.maxCust));
-  // this.customerEachHour.push(Math.floor(random(capHill.minCust, capHill.maxCust)));
-  // }
-  // console.log(this.customerEachHour);
-  // },
 
   // Render function to create LISTS in HTML
   renderHourly: function(){
@@ -253,16 +213,6 @@ var alki = {
     // console.log(sum);
     return sum;
   },
-  //calculated data with methods
-  // customersHour
-  // customersHour: function() {
-  //   for (var i = 0; i < hours.length; i++) {
-  //     //add a random number to customerHour Array
-  //     console.log('Customer Each Hour: ' + random(alki.minCust, alki.maxCust));
-  // this.customerEachHour.push(Math.floor(random(alki.minCust, alki.maxCust)));
-  // }
-  // console.log(this.customerEachHour);
-  // },
 
   // Render function to create LISTS in HTML
   renderHourly: function(){
@@ -284,35 +234,51 @@ var alki = {
       var alkiUl = document.getElementById('alki');
       alkiUl.appendChild(liEl);
     }
-  },
-
-  renderTotal: function() {
-    var liEl = document.createElement('li');
+    liEl = document.createElement('li');
     liEl.textContent = 'Total: ' + this.totalCookies() + ' cookies';
-    var alkiUl = document.getElementById('alkiTotal');
+    alkiUl = document.getElementById('alkiTotal');
     alkiUl.appendChild(liEl);
     // console.log(this.totalCookies());
-  }
+  },
+
+  // renderTotal: function() {
+  //   var liEl = document.createElement('li');
+  //   liEl.textContent = 'Total: ' + this.totalCookies() + ' cookies';
+  //   var alkiUl = document.getElementById('alkiTotal');
+  //   alkiUl.appendChild(liEl);
+  //   // console.log(this.totalCookies());
+  // }
 };
 
 
 
 //Output / render method for all objects/lists
-pike.renderHourly();
-pike.renderTotal();
-
-seaTac.renderHourly();
-seaTac.renderTotal();
-
-seattleCenter.renderHourly();
-seattleCenter.renderTotal();
-
-capHill.renderHourly();
-capHill.renderTotal();
-
 alki.renderHourly();
-alki.renderTotal();
+// pike.renderTotal();
 
-console.log('PikeData Array: ' + pike.pikeData);
+// seaTac.renderHourly();
+// seaTac.renderTotal();
+//
+// seattleCenter.renderHourly();
+// seattleCenter.renderTotal();
+//
+// capHill.renderHourly();
+// capHill.renderTotal();
+//
+// alki.renderHourly();
+// alki.renderTotal();
 
-console.log('Pike Total Cookies; ' + pike.totalCookies());
+// console.log('PikeData Array: ' + pike.pikeData);
+
+// console.log('Pike Total Cookies; ' + pike.totalCookies());
+
+//calculated data with methods
+// customersHour
+// customersHour: function() {
+//   for (var i = 0; i < hours.length; i++) {
+//     //add a random number to customerHour Array
+//     console.log('Customer Each Hour: ' + random(pike.minCust, pike.maxCust));
+// this.customerEachHour.push(Math.floor(random(pike.minCust, pike.maxCust)));
+// }
+// console.log(this.customerEachHour);
+// },
