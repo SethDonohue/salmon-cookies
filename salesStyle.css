@@ -1,0 +1,20 @@
+
+body {
+  background-color: lightGray;
+}
+
+.mainHeader {
+  font-style: italic;
+}
+
+.dataDiv ul{
+  font-family: "Georgia", serif;
+  font-size: 1.25em;
+  color: #001a00;
+}
+
+.dataDiv li{
+  font-family: "Arial", sans-serif;
+  font-size: .8em;
+  color: blue;
+}
