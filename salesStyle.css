@@ -3,11 +3,11 @@ body {
   background-color: lightGray;
 }
 
-.mainHeader {
+/*.mainHeader {
   font-style: italic;
-}
+}*/
 
-.dataDiv ul{
+/*.dataDiv ul{
   font-family: "Georgia", serif;
   font-size: 1.25em;
   color: #001a00;
@@ -17,4 +17,24 @@ body {
   font-family: "Arial", sans-serif;
   font-size: .8em;
   color: blue;
+}*/
+
+/*.table{
+  border: 1px solid green;
+}*/
+
+#sales {
+  border: 5px solid green;
+}
+
+td, tt {
+	padding: 5px;
+	border-radius: 5px;
+  border: 1px solid black;
+  background: gray;
+}
+
+th, tt {
+	background-color: navy;
+	color: white;
 }
