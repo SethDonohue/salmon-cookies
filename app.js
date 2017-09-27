@@ -33,6 +33,7 @@ Store.prototype.calcCookiesPerHour = function() {
   }
 };
 
+//Method to calculate totals for each store
 Store.prototype.calcTotal = function() {
   for (var i in this.cookiesPerHour) {
     this.dailySales += this.cookiesPerHour[i];
@@ -68,6 +69,7 @@ Store.prototype.render = function() {
   salesTable.appendChild(trEl);
 };
 
+//function to draw header row
 function makeHeaderRow() {
   // create tr
   var trEl = document.createElement('tr');
@@ -95,6 +97,7 @@ function makeHeaderRow() {
   salesTable.appendChild(trEl);
 }
 
+//function to calculate cookies per hour, calculate total and render
 function cookiesTotalRender() {
   for(var i = 0; i < storeInfo.length; i++){
     storeInfo[i].calcCookiesPerHour();
