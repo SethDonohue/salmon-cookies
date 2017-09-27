@@ -9,7 +9,7 @@ body {
   }
 
 .imageHeader {
-  background-image: url(img/salmon.png);
+  background-image: url(../img/salmon.png);
   background-repeat: no-repeat;
   background-position: center;
   height: 250px;
