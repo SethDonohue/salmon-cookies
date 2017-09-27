@@ -45,9 +45,9 @@ Store.prototype.render = function() {
   // create tr element for the object
   var trEl = document.createElement('tr');
   //create and append td element to above tr for the Location Names needed on for Column
-  var tdEl1 = document.createElement('td');
-  tdEl1.textContent = this.location;
-  trEl.appendChild(tdEl1);
+  var thEl = document.createElement('th');
+  thEl.textContent = this.location;
+  trEl.appendChild(thEl);
 
   //Loop needed to populate 2nd and follow on td elements for the above tr in table
   for (var i = 0; i < hours.length; i++) {
@@ -61,9 +61,9 @@ Store.prototype.render = function() {
 
   // sum += this.dailySales[i];
   //Add dailySales for each store to Daily Totals Column
-  tdEl = document.createElement('td');// could do th for styling purposes
-  tdEl.textContent = this.dailySales;
-  trEl.appendChild(tdEl);
+  thEl = document.createElement('th');// could do th for styling purposes
+  thEl.textContent = this.dailySales;
+  trEl.appendChild(thEl);
 
   //add this tr to the table!
   salesTable.appendChild(trEl);
