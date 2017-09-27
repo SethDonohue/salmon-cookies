@@ -52,9 +52,20 @@ Store.prototype.calcCookiesPerHour = function() {
 // Render function to create LISTS in HTML
 Store.prototype.render = function(){
 
-  var trEl = document.createElement('tr');
+  // this.cookiesPerHour.unshift(this.location)
+  // var trEl1 = document.createElement('tr');
+  // var tdEl1 = document.createElement('td');
+  // tdEl1.textContent = this.location;
+  // console.log('TH: ',this.location);
+  // // trEl1.appendChild(tdEl1);
+  // salesTable.appendChild(tdEl1);
 
-  for (var i in hours) {
+  var trEl = document.createElement('tr');
+  var tdEl1 = document.createElement('td');
+  tdEl1.textContent = this.location;
+  trEl.appendChild(tdEl1);
+
+  for (var i = 0; i < hours.length; i++) {
     var tdEl = document.createElement('td');
     // give that element content
     tdEl.textContent = this.cookiesPerHour[i];
@@ -63,8 +74,9 @@ Store.prototype.render = function(){
     trEl.appendChild(tdEl);
   }
   // tdEl.textContent = storeInfo.location;
-  // console.log(storeInfo.location);
+  // // console.log(storeInfo.location);
   // trEl.appendChild(tdEl);
+
   salesTable.appendChild(trEl);
   // liEl = document.createElement('li');
   // liEl.textContent = 'Total: ' + this.totalCookies() + ' cookies';
@@ -76,11 +88,12 @@ function makeHeaderRow() {
   // create tr
   var trEl = document.createElement('tr');
 
-  for (var i = 0; i < hours.length; i++) {
+  for (var i = -1; i < hours.length; i++) {
     // create td
     var thEl = document.createElement('th');
     // give td content (Name for an individual cat)
     thEl.textContent = hours[i];
+    // console.log(i);
     // append the td
     trEl.appendChild(thEl);
   }
@@ -89,7 +102,7 @@ function makeHeaderRow() {
 }
 
 function saleRows() {
-  for(var i in storeInfo){
+  for(var i = 0; i < storeInfo.length; i++){
     storeInfo[i].render();
   }
 }
@@ -117,7 +130,7 @@ alki.calcCookiesPerHour();
 
 makeHeaderRow();
 saleRows();
-// console.table(storeInfo);
+console.table(storeInfo);
 // console.log(pike.cookiesPerHour)
 // test();
 // console.table(Store.cookiesPerHour());
