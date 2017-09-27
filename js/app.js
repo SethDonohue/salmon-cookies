@@ -45,9 +45,9 @@ Store.prototype.render = function() {
   // create tr element for the object
   var trEl = document.createElement('tr');
   //create and append td element to above tr for the Location Names needed on for Column
-  var ttEl = document.createElement('tt');
-  ttEl.textContent = this.location;
-  trEl.appendChild(ttEl);
+  var thEl = document.createElement('th');
+  thEl.textContent = this.location;
+  trEl.appendChild(thEl);
 
   //Loop needed to populate 2nd and follow on td elements for the above tr in table
   for (var i = 0; i < hours.length; i++) {
@@ -59,7 +59,6 @@ Store.prototype.render = function() {
     trEl.appendChild(tdEl);
   };
 
-  // sum += this.dailySales[i];
   //Add dailySales for each store to Daily Totals Column
   var thEl = document.createElement('th');// could do th for styling purposes
   thEl.textContent = this.dailySales;
@@ -97,6 +96,16 @@ function makeHeaderRow() {
   salesTable.appendChild(trEl);
 }
 
+function makeHourlyRow() {
+  var trEl = document.createElement('tr');
+  var thEl = document.createElement('th');
+  thEl.textContent = 'Hourly Totals';
+  trEl.appendChild(thEl);
+
+  salesTable.appendChild(trEl);
+
+}
+
 //function to calculate cookies per hour, calculate total and render
 function cookiesTotalRender() {
   for(var i = 0; i < storeInfo.length; i++){
@@ -114,3 +123,4 @@ new Store('Alki', 23, 16, 4.6);
 
 makeHeaderRow();
 cookiesTotalRender();
+makeHourlyRow();

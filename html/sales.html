@@ -34,6 +34,31 @@ Alki	           2	16	4.6 -->
     <link rel="stylesheet" href="../css/salesStyle.css">
   </head>
   <body>
+
+<!--NEED TO ADD FORM FOR ENTRY-->
+    <form id="data-form">
+    <fieldset>
+      <legend>New Store Entry</legend>
+
+      <label for="location">Locaton: </label>
+      <input name="location" type="text" />
+
+      <label for="minCust">Minimum Customers: </label>
+      <input name="minCust" type="text" />
+
+      <label for="maxCust">Maximum Customers: </label>
+      <input name="maxCust" type="text" />
+
+      <label for="avgCookieSale">Average Cookie Sale: </label>
+      <input name="avgCookieSale" type="text" />
+
+      <button type="submit">Submit</button>
+    </fieldset>
+  </form>
+  <p></p>
+
+  <!-- <button id="clear-chat-list">Clear all comments!</button> -->
+
     <table id="sales"></table>
 
   <script src="../js/app.js"></script>
