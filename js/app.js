@@ -5,6 +5,8 @@ var hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '
 var storeInfo = [];
 var salesTable = document.getElementById('sales');
 
+//variables for event listening
+var dataForm = document.getElementById('data-form');
 
 //CONSTRUCTOR FUNCTION
 function Store(location, minCust, maxCust, avgCookieSale) {
@@ -68,6 +70,47 @@ Store.prototype.render = function() {
   salesTable.appendChild(trEl);
 };
 
+//Function for Event Handler of New Data Submission
+function handleNewStoreEntry(event) {
+  // console.log('log of the event object', event);
+  // console.log('log of the event.target', event.target);
+  // console.log('log of the event.target.says', event.target.who);
+  // console.log('log of the event.target.who.value', event.target.who.value);
+
+  event.preventDefault(); // gotta have it for this purpose. prevents page reload on a 'submit' event
+
+  // Validation to prevent empty form fields
+  if (!event.target.location.value || !event.target.minCust.value || !event.target.maxCust.value || !event.target.avgCookieSale.value) {
+    return alert('Fields cannot be empty!');
+  }
+
+  var commenter = event.target.who.value;
+  var remark = event.target.says.value;
+
+  if (commenter === 'Sam') {
+    remark = '@$^#$%$^@#$%@';
+  }
+
+  if (commenter === 'Dustin') {
+    remark = remark.toUpperCase();
+  }
+
+  if (commenter === 'Otis') {
+    remark = '&#9835; Shama-lama-ding-dong &#9835;';
+  }
+
+  var newComment = new Comment(commenter, remark);
+
+  // console.log('Comment by ' + event.target.who.value + ' at ' + Date());
+
+  event.target.who.value = null;
+  event.target.says.value = null;
+
+  allComments.push(newComment);
+  renderAllComments();
+}
+
+
 //function to draw header row
 function makeHeaderRow() {
   // create tr
@@ -121,6 +164,13 @@ new Store('Seattle Center', 38, 65, 3.7);
 new Store('Capitol Hill', 38, 65, 2.3);
 new Store('Alki', 23, 16, 4.6);
 
+//need new method/function to append new tr & tds
+//should add new store using constructor function and store in storeInfo array.
+
 makeHeaderRow();
 cookiesTotalRender();
 makeHourlyRow();
+
+// +++++++++++++++++++++++++++++++++++++++++++++++++++++
+// Event listener data submission
+dataForm.addEventListener('submit', handleNewStoreEntry);
