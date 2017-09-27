@@ -1,11 +1,8 @@
 'use strict';
 
-
+//global variables
 var hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm',];
-
-
 var storeInfo = [];
-
 var salesTable = document.getElementById('sales');
 
 
@@ -17,19 +14,18 @@ function Store(location, minCust, maxCust, avgCookieSale) {
   this.maxCust = maxCust;
   this.avgCookieSale = avgCookieSale;
   this.cookiesPerHour = [];
+  this.total = 0;
   storeInfo.push(this);
-
-  // console.log('TEST');
-  // console.log(storeInfo[0]);
 }
 
+//Method using random number to calculate Customers Per Hour
 Store.prototype.randomCustomers = function() {
   var customersPH = (Math.random() * (this.maxCust - this.minCust + 1) + this.minCust);
   // console.log('customerph:', customersPH);
   return customersPH;
 };
 
-//cookies per Hour
+//Method to calculate Cookies Per Hour
 Store.prototype.calcCookiesPerHour = function() {
   for (var i in hours) {
     // console.log('randomCustomers:', this.randomCustomers());
@@ -40,31 +36,27 @@ Store.prototype.calcCookiesPerHour = function() {
   }
 };
 
-//Calc Total Cookies
-// Store.prototype.totalCookies = function() {
+// Store.prototype.calcTotal = function() {
 //   var sum = 0;
+//   console.log('initSum:', sum);
 //   for (var i = 0; i < hours.length; i++){
-//     sum += this.cookiesPerHour[i];
+//     sum += this.total[i];
+//     console.log('LoopsSum:', sum);
 //   }
+//   console.log('FinalSum:',sum);
 //   return sum;
 // };
 
-// Render function to create LISTS in HTML
+// Method to Render function to create TD elements for table in HTML
 Store.prototype.render = function(){
-
-  // this.cookiesPerHour.unshift(this.location)
-  // var trEl1 = document.createElement('tr');
-  // var tdEl1 = document.createElement('td');
-  // tdEl1.textContent = this.location;
-  // console.log('TH: ',this.location);
-  // // trEl1.appendChild(tdEl1);
-  // salesTable.appendChild(tdEl1);
-
+  // create tr element for the object
   var trEl = document.createElement('tr');
+  //create and append td element to above tr for the Location Names needed on for Column
   var tdEl1 = document.createElement('td');
   tdEl1.textContent = this.location;
   trEl.appendChild(tdEl1);
-
+  var sum = 0;
+  //Loop needed to populate 2nd and follow on td elements for the above tr in table
   for (var i = 0; i < hours.length; i++) {
     var tdEl = document.createElement('td');
     // give that element content
@@ -72,16 +64,20 @@ Store.prototype.render = function(){
     // console.log(this.cookiesPerHour);
     // append tha element to the right spot in the DOM
     trEl.appendChild(tdEl);
-  }
-  // tdEl.textContent = storeInfo.location;
-  // // console.log(storeInfo.location);
-  // trEl.appendChild(tdEl);
+    sum += this.total[i];
+    console.log('Loopsum:', sum);
 
+  };
+
+  // sum += this.total[i];
+  console.log('Finalsum:', sum);
+  //Add total for each store to Daily Totals Column
+  tdEl = document.createElement('td');
+  tdEl.textContent = sum;
+  trEl.appendChild(tdEl);
+
+  //add this tr to the table!
   salesTable.appendChild(trEl);
-  // liEl = document.createElement('li');
-  // liEl.textContent = 'Total: ' + this.totalCookies() + ' cookies';
-  // alkiUl = document.getElementById('alkiTotal');
-  // alkiUl.appendChild(liEl);
 };
 
 function makeHeaderRow() {
@@ -97,6 +93,11 @@ function makeHeaderRow() {
     // append the td
     trEl.appendChild(thEl);
   }
+  //create and append th element to above tr for the last td to 'Display Totals'
+  var thEl = document.createElement('td');
+  thEl.textContent = 'Daily Totals';
+  trEl.appendChild(thEl);
+
   // append the tr to the table
   salesTable.appendChild(trEl);
 }
@@ -119,6 +120,7 @@ function saleRows() {
 
 var pike = new Store('1st and Pike', 23, 65, 6.3);
 pike.calcCookiesPerHour();
+// pike.calcTotal();
 var seaTac = new Store('SeaTac', 24, 65, 1.2);
 seaTac.calcCookiesPerHour();
 var seattleCenter = new Store('Seattle Center', 38, 65, 3.7);
