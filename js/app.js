@@ -5,6 +5,8 @@ var hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '
 var storeInfo = [];
 var salesTable = document.getElementById('sales');
 
+//variables for event listening
+var dataForm = document.getElementById('data-form');
 
 //CONSTRUCTOR FUNCTION
 function Store(location, minCust, maxCust, avgCookieSale) {
@@ -35,19 +37,23 @@ Store.prototype.calcCookiesPerHour = function() {
 
 //Method to calculate totals for each store
 Store.prototype.calcTotal = function() {
+  console.log('test1');
   for (var i in this.cookiesPerHour) {
     this.dailySales += this.cookiesPerHour[i];
+    console.log('this.dailySales: ', this.dailySales);
+    // console.log('test1')
   }
 };
 
 // Method to Render function to create TD elements for table in HTML
 Store.prototype.render = function() {
+
   // create tr element for the object
   var trEl = document.createElement('tr');
   //create and append td element to above tr for the Location Names needed on for Column
-  var ttEl = document.createElement('tt');
-  ttEl.textContent = this.location;
-  trEl.appendChild(ttEl);
+  var thEl = document.createElement('th');
+  thEl.textContent = this.location;
+  trEl.appendChild(thEl);
 
   //Loop needed to populate 2nd and follow on td elements for the above tr in table
   for (var i = 0; i < hours.length; i++) {
@@ -59,15 +65,60 @@ Store.prototype.render = function() {
     trEl.appendChild(tdEl);
   };
 
-  // sum += this.dailySales[i];
   //Add dailySales for each store to Daily Totals Column
-  var thEl = document.createElement('th');// could do th for styling purposes
+  thEl = document.createElement('th');// could do th for styling purposes
   thEl.textContent = this.dailySales;
   trEl.appendChild(thEl);
 
   //add this tr to the table!
   salesTable.appendChild(trEl);
 };
+
+//Function for Event Handler of New Data Submission
+function handleNewStoreEntry(event) {
+  // console.log('log of the event object', event);
+  // console.log('log of the event.target', event.target);
+  // console.log('log of the event.target.says', event.target.who);
+  // console.log('log of the event.target.who.value', event.target.who.value);
+  // storeInfo = [];
+  event.preventDefault(); // gotta have it for this purpose. prevents page reload on a 'submit' event
+
+  // Validation to prevent empty form fields
+  if (!event.target.location.value || !event.target.minCust.value || !event.target.maxCust.value || !event.target.avgCookieSale.value) {
+    return alert('Fields cannot be empty!');
+  }
+
+  var newLoc = event.target.location.value;
+  var newMin = parseInt(event.target.minCust.value);
+  var newMax = parseInt(event.target.maxCust.value);
+  var newAvg = parseInt(event.target.avgCookieSale.value);
+
+  // console.log('newloc: ',newLoc);
+  // console.log('newMin: ',newMin);
+  // console.log('newMax: ',newMax);
+  // console.log('newAvg: ',newAvg);
+
+  var submitInfo = new Store(newLoc, newMin, newMax, newAvg);
+  // console.log('submitInfo: ', submitInfo);
+
+  // console.log('Comment by ' + event.target.who.value + ' at ' + Date());
+  // storeInfo.push(submitInfo);
+  // console.log('StoreInfo pushed: ', submitInfo);
+
+  event.target.location.value = null;
+  event.target.minCust.value = null;
+  event.target.maxCust.value = null;
+  event.target.avgCookieSale.value = null;
+
+
+  // RENDER ALL AFTER NEW ENTRY
+  salesTable.innerHTML = '';
+  makeHeaderRow();
+  cookiesTotalRender();
+  makeHourlyRow();
+
+}
+
 
 //function to draw header row
 function makeHeaderRow() {
@@ -97,6 +148,16 @@ function makeHeaderRow() {
   salesTable.appendChild(trEl);
 }
 
+function makeHourlyRow() {
+  var trEl = document.createElement('tr');
+  var thEl = document.createElement('th');
+  thEl.textContent = 'Hourly Totals';
+  trEl.appendChild(thEl);
+
+  salesTable.appendChild(trEl);
+
+}
+
 //function to calculate cookies per hour, calculate total and render
 function cookiesTotalRender() {
   for(var i = 0; i < storeInfo.length; i++){
@@ -112,5 +173,13 @@ new Store('Seattle Center', 38, 65, 3.7);
 new Store('Capitol Hill', 38, 65, 2.3);
 new Store('Alki', 23, 16, 4.6);
 
+//need new method/function to append new tr & tds
+//should add new store using constructor function and store in storeInfo array.
+
 makeHeaderRow();
 cookiesTotalRender();
+makeHourlyRow();
+
+// +++++++++++++++++++++++++++++++++++++++++++++++++++++
+// Event listener data submission
+dataForm.addEventListener('submit', handleNewStoreEntry);
