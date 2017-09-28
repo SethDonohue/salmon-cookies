@@ -37,13 +37,17 @@ Store.prototype.calcCookiesPerHour = function() {
 
 //Method to calculate totals for each store
 Store.prototype.calcTotal = function() {
+  console.log('test1');
   for (var i in this.cookiesPerHour) {
     this.dailySales += this.cookiesPerHour[i];
+    console.log('this.dailySales: ', this.dailySales);
+    // console.log('test1')
   }
 };
 
 // Method to Render function to create TD elements for table in HTML
 Store.prototype.render = function() {
+
   // create tr element for the object
   var trEl = document.createElement('tr');
   //create and append td element to above tr for the Location Names needed on for Column
@@ -62,7 +66,7 @@ Store.prototype.render = function() {
   };
 
   //Add dailySales for each store to Daily Totals Column
-  var thEl = document.createElement('th');// could do th for styling purposes
+  thEl = document.createElement('th');// could do th for styling purposes
   thEl.textContent = this.dailySales;
   trEl.appendChild(thEl);
 
@@ -76,7 +80,7 @@ function handleNewStoreEntry(event) {
   // console.log('log of the event.target', event.target);
   // console.log('log of the event.target.says', event.target.who);
   // console.log('log of the event.target.who.value', event.target.who.value);
-
+  // storeInfo = [];
   event.preventDefault(); // gotta have it for this purpose. prevents page reload on a 'submit' event
 
   // Validation to prevent empty form fields
@@ -84,30 +88,35 @@ function handleNewStoreEntry(event) {
     return alert('Fields cannot be empty!');
   }
 
-  var commenter = event.target.who.value;
-  var remark = event.target.says.value;
+  var newLoc = event.target.location.value;
+  var newMin = parseInt(event.target.minCust.value);
+  var newMax = parseInt(event.target.maxCust.value);
+  var newAvg = parseInt(event.target.avgCookieSale.value);
 
-  if (commenter === 'Sam') {
-    remark = '@$^#$%$^@#$%@';
-  }
+  // console.log('newloc: ',newLoc);
+  // console.log('newMin: ',newMin);
+  // console.log('newMax: ',newMax);
+  // console.log('newAvg: ',newAvg);
 
-  if (commenter === 'Dustin') {
-    remark = remark.toUpperCase();
-  }
-
-  if (commenter === 'Otis') {
-    remark = '&#9835; Shama-lama-ding-dong &#9835;';
-  }
-
-  var newComment = new Comment(commenter, remark);
+  var submitInfo = new Store(newLoc, newMin, newMax, newAvg);
+  // console.log('submitInfo: ', submitInfo);
 
   // console.log('Comment by ' + event.target.who.value + ' at ' + Date());
+  // storeInfo.push(submitInfo);
+  // console.log('StoreInfo pushed: ', submitInfo);
 
-  event.target.who.value = null;
-  event.target.says.value = null;
+  event.target.location.value = null;
+  event.target.minCust.value = null;
+  event.target.maxCust.value = null;
+  event.target.avgCookieSale.value = null;
 
-  allComments.push(newComment);
-  renderAllComments();
+
+  // RENDER ALL AFTER NEW ENTRY
+  salesTable.innerHTML = '';
+  makeHeaderRow();
+  cookiesTotalRender();
+  makeHourlyRow();
+
 }
 
 
