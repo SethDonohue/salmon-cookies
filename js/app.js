@@ -26,7 +26,7 @@ function Store(location, minCust, maxCust, avgCookieSale) {
   this.cookiesPerHour = [];
   this.dailySales = 0;
   Store.storeInfo.push(this);
-  this.calcCustomersPerHour();
+  // this.calcCustomersPerHour();
   this.calcCookiesPerHour(); //sams code example
 }
 
@@ -46,6 +46,7 @@ Store.prototype.calcCookiesPerHour = function() {
   // console.log('CustomersPH: ',this.customersPerHour);
   // console.log('CPH 1 : ',this.cookiesPerHour);
   // this.calcCustomersPerHour();
+  this.calcCustomersPerHour();
   this.dailySales = 0;
   for (var i = 0; i < Store.hours.length; i++) {
     // console.log('CPH 2 : ',this.customersPerHour);
