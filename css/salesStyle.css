@@ -28,10 +28,10 @@ body {
 }
 
 td, tt {
-	padding: 5px;
+	padding: 10px;
 	border-radius: 5px;
   border: 1px solid black;
-  background: gray;
+  background: white;
 }
 
 th, tt {

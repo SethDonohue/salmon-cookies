@@ -165,23 +165,32 @@ Store.makeHeaderRow = function() {
 };
 
 Store.makeHourlyRow = function() {
+  console.log("HOurly Total is being reached.");
   var trEl = document.createElement('tr');
   var thEl = document.createElement('th');
   thEl.textContent = 'Hourly Totals';
   trEl.appendChild(thEl);
-  // var = allTotals = 0;
+  var allTotals = 0;
   var hourlyTotals = 0;
 
   for (var i = 0; i < Store.hours.length; i++) {
     hourlyTotals = 0;
-    for (var j in Store.storeInfo.length) {
+    // debugger;
+    for (var j = 0; j < Store.storeInfo.length; j++) {
+      console.log(Store.storeInfo.length);
       hourlyTotals += Store.storeInfo[j].cookiesPerHour[i];
-      // allTotals += Store.storeInfo[j].cookiesPerHour[i];
+      // debugger;
+      allTotals += Store.storeInfo[j].cookiesPerHour[i];
     }
     thEl = document.createElement('th');
     thEl.textContent = hourlyTotals;
     trEl.appendChild(thEl);
+    Store.salesTable.appendChild(trEl);
   }
+  thEl = document.createElement('th');
+  thEl.textContent = allTotals;
+  trEl.appendChild(thEl);
+  Store.salesTable.appendChild(trEl);
 };
 
 //function to calculate cookies per hour, calculate total and render
