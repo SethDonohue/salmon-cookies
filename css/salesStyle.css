@@ -1,40 +1,76 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
 
-body {
-  background-color: lightGray;
+  body {
+    font-family: Helvetica;
+  }
+
+  header {
+    background-color: #333;
+    height: 100px;
+    position: fixed;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    z-index: 1;
+    font-family: Montserrat;
+    text-align: center;
+    font-size: 30px;
+    color: white;
+  }
+
+  main{
+    position: absolute;
+    top: 125px;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    width: 960px;
+    text-align: center;
 }
 
-/*.mainHeader {
-  font-style: italic;
-}*/
-
-/*.dataDiv ul{
-  font-family: "Georgia", serif;
-  font-size: 1.25em;
-  color: #001a00;
+button {
+  font-size: 24px;
+  width: 500px;
+}
+form {
+  display: inline;
+  font-size: 16px;
+  width: 960px;
 }
 
-.dataDiv li{
-  font-family: "Arial", sans-serif;
-  font-size: .8em;
-  color: blue;
-}*/
+  #sales {
+    border: 5px solid #333;
+    width: 960px;
+  }
 
-/*.table{
-  border: 1px solid green;
-}*/
+  td, tt {
+  	padding: 10px;
+  	border-radius: 5px;
+    border: 1px solid black;
+    background: white;
+  }
 
-#sales {
-  border: 5px solid green;
-}
+  th, tt {
+    padding: 10px 2px;
+  	background-color: #999;
+  	color: black;
+  }
 
-td, tt {
-	padding: 10px;
-	border-radius: 5px;
-  border: 1px solid black;
-  background: white;
-}
-
-th, tt {
-	background-color: navy;
-	color: white;
-}
+  footer {
+    height: 30px;
+    display: inline-block;
+    position: fixed;
+    bottom: 0%;
+    left: 0;
+    right: 0;
+    /*margin-top: 100px;*/
+    margin-left: auto;
+    margin-right: auto;
+    /*z-index: 1;*/
+    font-family: Montserrat;
+    color: white;
+    background-color: #333;
+    text-align: center;
+  }
