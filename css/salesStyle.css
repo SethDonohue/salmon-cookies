@@ -2,6 +2,7 @@
 
   body {
     font-family: Helvetica;
+    background-color: #999;
   }
 
   header {
@@ -15,7 +16,7 @@
     z-index: 1;
     font-family: Montserrat;
     text-align: center;
-    font-size: 30px;
+    font-size: 40px;
     color: white;
   }
 
