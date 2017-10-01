@@ -1,49 +1,51 @@
 <!DOCTYPE html>
-
-<!--
-Pat's Salmon Cookies:
-====Besides using the picture of the fish... you should use...
-====A custom Google font for highlights
-====A specified standard san-serif web font for data (such as Arial, Verdana, or Helvetica)
-====A specified standard serif web font for text (such as Georgia, Times, etc.)
-====Specified different font colors for all three font usages
-====A background color for the default page background (make sure font colors have good contrast and are readable on this background)
-(no boxes or tables yet)-A different background color for elements such boxes and tables (so make sure the font colors contrast against this well, too!)
--Anything else you'd like to add related to style. But remember: simplicity, clarity, and consistency are good things in design.
--Be thoughtful about layout and overall organization of the page.
--Include all of the typical stuff that you'll find on the home page of a business: locations, hours, contact information, some text about how awesome the business is, etc.
--Be creative, and again, think about what is meaningful to a typical end user. -->
-
 <html>
   <head>
     <meta charset="utf-8">
     <title> Pat's Salmon Cookies and Coffee</title>
+    <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/mainStyle.css">
   </head>
 
   <body>
-    <div class='imageHeader'>
-    <h1 class='mainHeader'> Pat's Salmon Cookies & Coffee </h1>
-    <h2 class='mainMenu'> Locations:
-      <li> 1st and Pike </li>
-      <li> SeaTac </li>
-      <li> Seattle Center </li>
-      <li> Capitol Hill </li>
-      <li> Alki </li>
-    </h2>
-    <h2 class='mainMenu'> Hours
-      <li> 6:00am to 8:00pm </li>
-    </h2>
-    <h2 class='mainMenu'> Contact
-      <li> Sam! </li>
-    </h2>
-    <!-- <h2 class='mainMenu'> Test </h2> -->
-    <!-- <h2 class='mainMenu'> Test </h2> -->
-  </div>
-  <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-  <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-  <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-    <!-- <script type="text/javascript" src="app.js">
-    </script> -->
+    <header>
+      <nav>
+        <ul>
+          <li><img class = "chinook" src="../img/chinook.jpg" alt="Chinook Salmon" width="200px"></li>
+          <li><a href="info.html">Locations</li>
+          <li><a href="info.html">Hours</li>
+          <li><a href="info.html">Contact</li>
+          <li><img class="salmon" src="../img/salmon.png" alt="Salmon" width="200px"></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <div class="title">
+        <p>Pat's Salmon Cookies</p>
+
+      </div>
+      <ul>
+        <li>Shirts!</li>
+        <li>Cutters!</li>
+        <li>Cookies!</li>
+      </ul>
+
+      <section>
+        <img src="../img/family.jpg" alt=" Family Eating Cookies" height="250px">
+        <div class="about">
+          <h2>About Pat's Salmon Cookies</h2>
+          <p>Pat's Salmon Cookies are the salmon and cookie lovers dream! They combine finely ground premium NorthWest non-farmed, non-GMO, no-bad-stuff, and all the lables that we canuse to make us sound hip and inline with to make us work with the newest food and diet fads.</p>
+          <p>The famous Salmon cookie has been around since 1989 and took over the old but original Starbucks location to continue the trend of trendy coffee shops, but with an extra twist of tasty Salmon Cookies.</p>
+          <p>Have a cookie with your coffee, or have them almost with your salmo dinner to add a little sweet salmon to your life!</p>
+        </div>
+      </section>
+
+    </main>
+
+    <footer>
+      <!-- <img src="../img/fish.jpg" alt="three Fish" width="100px"> -->
+      <p>Copy Right Stuff</p>
+    </footer>
   </body>
 </html>
